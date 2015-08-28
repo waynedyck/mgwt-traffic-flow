@@ -1,0 +1,81 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder
+    xmlns:ui="urn:ui:com.google.gwt.uibinder"
+    xmlns:g="urn:import:com.google.gwt.user.client.ui"
+    xmlns:gwt="urn:import:com.google.gwt"
+    xmlns:mgwt="urn:import:com.googlecode.mgwt.ui.client.widget"
+    xmlns:local="urn:import:com.imaginedreal.mgwt.trafficflow.client.widget">
+
+    <ui:style>
+        .progressIndicatorPanel {
+            display: -webkit-box;
+            -webkit-box-pack: center;
+            max-width: 100%;
+        }
+        .progressIndicator {
+            margin-right: 0px;
+            padding: 30px 0 20px 0;
+        }
+		.mapCanvas {
+			left: 0px;
+			top: 0px;
+		}
+		.flowCanvas {
+			position: absolute;
+			left: 0px;
+			top: 0px;
+		}
+		.cameraCanvas {
+			position: absolute;
+			left: 0px;
+			right: 0px;
+		}
+		.lastUpdated {
+			position: fixed;
+			text-transform: uppercase;
+			font-size: x-small;
+			padding: 5px;
+			bottom: 5px;
+			right: 5px;
+			color: #fff;
+			background-color: rgba(0,0,0,0.75);
+			z-index:1;
+		}
+    </ui:style>
+
+    <mgwt:panel.flex.RootFlexPanel>
+        <mgwt:header.HeaderPanel>
+            <local:button.image.MenuImageButton ui:field="menuButton" />
+            <mgwt:header.HeaderTitle>Tacoma Area</mgwt:header.HeaderTitle>
+            <mgwt:panel.flex.FlexSpacer />
+            <mgwt:button.image.CameraImageButton ui:field="cameraButton" />
+            <mgwt:button.image.RefreshImageButton ui:field="refreshButton" />
+        </mgwt:header.HeaderPanel>
+
+       	<g:FlowPanel ui:field="flowPanel">
+	        <g:HTMLPanel styleName="{style.progressIndicatorPanel}">
+	            <mgwt:progress.ProgressIndicator ui:field="progressIndicator" visible="false" addStyleNames="{style.progressIndicator}" />
+	        </g:HTMLPanel>
+       	</g:FlowPanel>
+
+		<g:HTMLPanel styleName="{style.lastUpdated}">
+		    <g:Label ui:field="lastUpdatedLabel" />
+		</g:HTMLPanel>
+
+        <mgwt:panel.scroll.ScrollPanel ui:field="scrollPanel" scrollingEnabledX="true" bounce="false">
+            <g:FlowPanel ui:field="container">
+                <gwt:canvas.client.Canvas ui:field="mapCanvas" styleName="{style.mapCanvas}" />
+                <gwt:canvas.client.Canvas ui:field="flowCanvas" styleName="{style.flowCanvas}" />
+                <gwt:canvas.client.Canvas ui:field="cameraCanvas" styleName="{style.cameraCanvas}" />
+            </g:FlowPanel>
+        </mgwt:panel.scroll.ScrollPanel>
+        
+        <!-- <mgwt:buttonbar.ButtonBar ui:field="buttonBar">
+            <mgwt:panel.flex.FlexSpacer />
+            <mgwt:button.image.CameraImageButton ui:field="cameraButton" />
+            <mgwt:panel.flex.FlexSpacer />
+        </mgwt:buttonbar.ButtonBar> -->
+
+    </mgwt:panel.flex.RootFlexPanel>
+    
+</ui:UiBinder>

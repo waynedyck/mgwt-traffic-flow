@@ -1,0 +1,32 @@
+.subshell-HuePicker {
+	margin-left: 5pt;
+}
+
+.gwt-DialogBox {
+	border: 1px solid #aaaaaa;
+}
+
+.gwt-DialogBox .Caption {
+	background-color: #455A64;
+	color: #ffffff;
+	font-weight: bold;
+	border: 1px solid #ffffff;
+	padding-left: 10pt;
+	padding-right: 10pt;
+	padding-top: 3pt;
+	padding-bottom: 3pt;
+}
+
+.gwt-DialogBox .dialogContent {
+	padding: 10pt;
+	background-color: #ffffff;
+}
+
+.gwt-DialogBox .DialogButtons {
+	text-align: right;
+	margin-top: 10pt;
+}
+
+.gwt-DialogBox .DialogButtons button {
+	margin-left: 5pt;
+}

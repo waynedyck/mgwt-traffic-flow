@@ -1,0 +1,45 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder
+    xmlns:ui="urn:ui:com.google.gwt.uibinder"
+    xmlns:g="urn:import:com.google.gwt.user.client.ui"
+    xmlns:mgwt="urn:import:com.googlecode.mgwt.ui.client.widget"
+    xmlns:local="urn:import:com.imaginedreal.mgwt.trafficflow.client.widget">
+
+    <ui:style>
+		.htmlPanel {
+			padding: 16px;
+		}
+    </ui:style>
+    
+    <ui:import field="com.imaginedreal.mgwt.trafficflow.client.util.Consts.APP_VERSION" />
+
+    <mgwt:panel.flex.RootFlexPanel>
+        <mgwt:header.HeaderPanel>
+            <local:button.image.MenuImageButton ui:field="menuButton" />
+            <mgwt:header.HeaderTitle>About</mgwt:header.HeaderTitle>
+            <mgwt:panel.flex.FlexSpacer />
+            <mgwt:panel.flex.FixedSpacer />
+        </mgwt:header.HeaderPanel>
+
+        <mgwt:panel.scroll.ScrollPanel scrollingEnabledX="false" bounce="false">
+            <g:HTMLPanel styleName="{style.htmlPanel}">
+            	<g:HTML>
+            	    <p>This app is a bit of an experiment in an attempt to assist those who have a color 
+            	        vision deficiency. One who is color vision deficient has a decreased ability 
+            	        to see color, or perceive color differences. This is potentially problematic if you 
+            	        are trying to differentiate traffic conditions on a map based on a color scheme.</p><br />
+            	    <p>By tapping the gear icon in the upper left corner of the menu screen you have 
+            	        the ability to customize the colors which are used to display traffic conditions.</p><br />
+            	    <p>The app is still being worked on so if you have any questions, thoughts or suggestions 
+            	        on how to make it better please feel free to send an email to 
+            	        <a href="mailto:support@imaginedreal.com?subject=TrafficFlow Android App" style="color:rgba(0,0,0,0.54);">
+            	            Imagined Real Support</a>.</p>
+            	    <br />
+            	    <p style="color:rgba(0,0,0,0.54);">App Version: <ui:text from="{APP_VERSION}" /></p>
+            	</g:HTML>
+            </g:HTMLPanel>
+        </mgwt:panel.scroll.ScrollPanel>
+
+    </mgwt:panel.flex.RootFlexPanel>
+    
+</ui:UiBinder>

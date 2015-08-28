@@ -1,0 +1,44 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder
+    xmlns:ui="urn:ui:com.google.gwt.uibinder"
+    xmlns:g="urn:import:com.google.gwt.user.client.ui"
+    xmlns:mgwt="urn:import:com.googlecode.mgwt.ui.client.widget">
+
+    <ui:style>
+        .progressIndicatorPanel {
+            display: -webkit-box;
+            -webkit-box-pack: center;
+            max-width: 100%;
+        }
+        .progressIndicator {
+            margin-right: 0px;
+            padding: 30px 0 20px 0;
+        }
+		.htmlPanel {
+			padding: 16px;
+		}
+    </ui:style>
+
+    <mgwt:panel.flex.RootFlexPanel>
+        <mgwt:header.HeaderPanel>
+            <mgwt:button.image.BackImageButton ui:field="backButton" />
+            <mgwt:header.HeaderTitle>Camera</mgwt:header.HeaderTitle>
+            <mgwt:panel.flex.FlexSpacer />
+            <mgwt:panel.flex.FixedSpacer />
+        </mgwt:header.HeaderPanel>
+
+       	<g:FlowPanel ui:field="flowPanel">
+	        <g:HTMLPanel styleName="{style.progressIndicatorPanel}">
+	            <mgwt:progress.ProgressIndicator ui:field="progressIndicator" visible="true" addStyleNames="{style.progressIndicator}" />
+	        </g:HTMLPanel>
+       	</g:FlowPanel>
+        
+        <mgwt:panel.scroll.ScrollPanel scrollingEnabledX="false" bounce="false">
+            <g:HTMLPanel ui:field="htmlPanel" styleName="{style.htmlPanel}">
+				<g:Image ui:field="cameraImage"></g:Image>
+            </g:HTMLPanel>
+        </mgwt:panel.scroll.ScrollPanel>
+
+    </mgwt:panel.flex.RootFlexPanel>
+    
+</ui:UiBinder>
