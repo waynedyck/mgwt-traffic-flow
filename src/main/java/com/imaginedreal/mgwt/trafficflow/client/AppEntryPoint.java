@@ -30,6 +30,7 @@ import com.google.code.gwt.database.client.service.VoidCallback;
 import com.google.gwt.activity.shared.ActivityMapper;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.storage.client.Storage;
 import com.google.gwt.storage.client.StorageMap;
@@ -53,7 +54,11 @@ import com.googlecode.mgwt.ui.client.util.SuperDevModeUtil;
 import com.googlecode.mgwt.ui.client.widget.animation.AnimationWidget;
 import com.imaginedreal.mgwt.trafficflow.client.activities.seattle.SeattlePlace;
 import com.imaginedreal.mgwt.trafficflow.client.activities.tacoma.TacomaPlace;
+import com.imaginedreal.mgwt.trafficflow.client.plugins.admob.AdMob;
+import com.imaginedreal.mgwt.trafficflow.client.plugins.admob.AdMobOptions;
+import com.imaginedreal.mgwt.trafficflow.client.plugins.admob.AdMobOptions.AdPosition;
 import com.imaginedreal.mgwt.trafficflow.shared.CacheItem;
+
 
 public class AppEntryPoint implements EntryPoint {
   
@@ -82,6 +87,18 @@ public class AppEntryPoint implements EntryPoint {
 	    });
 		
 		phoneGap.initializePhoneGap();
+		
+        // Initialize and configure AdMob plugin
+        final AdMob adMob = GWT.create(AdMob.class);
+        adMob.initialize();
+
+        AdMobOptions options = (AdMobOptions)JavaScriptObject.createObject().cast();
+        options.setAdId("/6499/example/banner");
+        options.setOffsetTopBar(true);
+        options.setAutoShow(true);
+        options.setPosition(AdPosition.BOTTOM_CENTER.getPosition());
+
+        adMob.createBanner(options);
     }
 
     private void buildDisplay(final ClientFactory clientFactory, final PhoneGap phoneGap) {
