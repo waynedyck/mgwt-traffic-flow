@@ -8,7 +8,5 @@ The application is built using:
 
   * [Google Web Toolkit (GWT)](http://www.gwtproject.org/)
   * [mGWT - Mobile GWT](https://github.com/mgwt/mgwt)
-  * [GWT-PhoneGap](https://code.google.com/p/gwt-phonegap/)
+  * [GWT-PhoneGap](https://github.com/mgwt/gwtphonegap)
   * [GWT-HTML5-Database](https://github.com/waynedyck/gwt-html5-database) for the Web SQL database
-  * [Color Picker Dialog](http://www.subshell.com/en/subshell/blog/Implementing-a-Color-Picker-Dialog-With-Canvas-and-GWT100.html) widget for implementing the color picker 
-
