@@ -131,7 +131,7 @@ public class AppEntryPoint implements EntryPoint {
 					@Override
 					public void onBackButtonPressed(BackButtonPressedEvent event) {
 						Place place = clientFactory.getPlaceController().getWhere();
-						if (place instanceof SeattlePlace	|| place instanceof TacomaPlace) {
+						if (place instanceof SeattlePlace || place instanceof TacomaPlace) {
 							phoneGap.exitApp();
 						} else {
 							History.back();

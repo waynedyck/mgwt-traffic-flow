@@ -17,6 +17,10 @@
 		.htmlPanel {
 			padding: 16px;
 		}
+		.cameraImage {
+			max-width: 100%;
+			height: auto;
+		}
     </ui:style>
 
     <mgwt:panel.flex.RootFlexPanel>
@@ -35,7 +39,7 @@
         
         <mgwt:panel.scroll.ScrollPanel scrollingEnabledX="false" bounce="false">
             <g:HTMLPanel ui:field="htmlPanel" styleName="{style.htmlPanel}">
-				<g:Image ui:field="cameraImage"></g:Image>
+				<g:Image ui:field="cameraImage" styleName="{style.cameraImage}"></g:Image>
             </g:HTMLPanel>
         </mgwt:panel.scroll.ScrollPanel>
 
