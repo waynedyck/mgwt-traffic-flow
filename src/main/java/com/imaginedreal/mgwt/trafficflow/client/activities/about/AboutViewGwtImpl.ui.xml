@@ -2,8 +2,7 @@
 <ui:UiBinder
     xmlns:ui="urn:ui:com.google.gwt.uibinder"
     xmlns:g="urn:import:com.google.gwt.user.client.ui"
-    xmlns:mgwt="urn:import:com.googlecode.mgwt.ui.client.widget"
-    xmlns:local="urn:import:com.imaginedreal.mgwt.trafficflow.client.widget">
+    xmlns:mgwt="urn:import:com.googlecode.mgwt.ui.client.widget">
 
     <ui:style>
 		.htmlPanel {
@@ -15,7 +14,7 @@
 
     <mgwt:panel.flex.RootFlexPanel>
         <mgwt:header.HeaderPanel>
-            <local:button.image.MenuImageButton ui:field="menuButton" />
+            <mgwt:button.image.MenuImageButton ui:field="menuButton" />
             <mgwt:header.HeaderTitle>About</mgwt:header.HeaderTitle>
             <mgwt:panel.flex.FlexSpacer />
             <mgwt:panel.flex.FixedSpacer />

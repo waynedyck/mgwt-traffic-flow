@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Wayne Dyck
+ * Copyright 2016 Wayne Dyck
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,10 +28,10 @@ import com.google.gwt.user.client.ui.Widget;
 import com.googlecode.mgwt.dom.client.event.tap.TapEvent;
 import com.googlecode.mgwt.dom.client.event.tap.TapHandler;
 import com.googlecode.mgwt.ui.client.widget.button.ImageButton;
+import com.googlecode.mgwt.ui.client.widget.button.image.MenuImageButton;
 import com.googlecode.mgwt.ui.client.widget.form.Form;
 import com.googlecode.mgwt.ui.client.widget.form.FormEntry;
 import com.googlecode.mgwt.ui.client.widget.image.ImageHolder;
-import com.imaginedreal.mgwt.trafficflow.client.widget.button.image.MenuImageButton;
 import com.imaginedreal.mgwt.trafficflow.client.widget.colorpicker.ColorPickerDialog;
 import com.imaginedreal.mgwt.trafficflow.client.widget.colorpicker.dialog.DialogClosedEvent;
 import com.imaginedreal.mgwt.trafficflow.client.widget.colorpicker.dialog.IDialogClosedHandler;

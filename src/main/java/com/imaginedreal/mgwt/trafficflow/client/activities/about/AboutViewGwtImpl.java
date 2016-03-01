@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Wayne Dyck
+ * Copyright 2016 Wayne Dyck
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,7 @@ import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
 import com.googlecode.mgwt.dom.client.event.tap.TapEvent;
-import com.imaginedreal.mgwt.trafficflow.client.widget.button.image.MenuImageButton;
+import com.googlecode.mgwt.ui.client.widget.button.image.MenuImageButton;
 
 public class AboutViewGwtImpl extends Composite implements AboutView {
 
