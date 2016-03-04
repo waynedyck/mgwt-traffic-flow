@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Wayne Dyck
+ * Copyright 2016 Wayne Dyck
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,13 +45,13 @@ import com.google.gwt.user.client.ui.Widget;
 import com.googlecode.mgwt.dom.client.event.tap.TapEvent;
 import com.googlecode.mgwt.dom.client.event.tap.TapHandler;
 import com.googlecode.mgwt.ui.client.widget.button.image.CameraImageButton;
+import com.googlecode.mgwt.ui.client.widget.button.image.MenuImageButton;
 import com.googlecode.mgwt.ui.client.widget.button.image.RefreshImageButton;
 import com.googlecode.mgwt.ui.client.widget.panel.scroll.ScrollPanel;
 import com.googlecode.mgwt.ui.client.widget.progress.ProgressIndicator;
 import com.googlecode.mgwt.ui.client.widget.touch.TouchDelegate;
 import com.imaginedreal.mgwt.trafficflow.client.resources.Resources;
 import com.imaginedreal.mgwt.trafficflow.client.util.ParserUtils;
-import com.imaginedreal.mgwt.trafficflow.client.widget.button.image.MenuImageButton;
 import com.imaginedreal.mgwt.trafficflow.shared.CameraItem;
 import com.imaginedreal.mgwt.trafficflow.shared.StationItem;
 
