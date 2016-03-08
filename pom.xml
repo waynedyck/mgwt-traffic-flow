@@ -129,7 +129,7 @@
 		<dependency>
 			<groupId>com.googlecode.gwtphonegap</groupId>
 			<artifactId>gwtphonegap</artifactId>
-			<version>3.5.0.0</version>
+			<version>3.5.0.2-SNAPSHOT</version>
 			<!-- Exclude outdated gwt-dev that breaks compile -->
 			<exclusions>
 				<exclusion>
