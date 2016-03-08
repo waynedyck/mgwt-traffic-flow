@@ -195,7 +195,7 @@ public class TacomaActivity extends MGWTAbstractActivity implements
 			    
 			    if (shouldUpdate) {
 			    	try {
-			    	    String url = "http://trafficflow-imaginedreal.rhcloud.com/api/flowdata/MinuteDataOR";
+			    	    String url = Consts.HOST_URL + "/api/flowdata/MinuteDataOR";
 			    	    JsonpRequestBuilder jsonp = new JsonpRequestBuilder();
 			    	    jsonp.setTimeout(30000); // 30 seconds
 			    	    jsonp.requestObject(url, new AsyncCallback<FlowDataFeed>() {
