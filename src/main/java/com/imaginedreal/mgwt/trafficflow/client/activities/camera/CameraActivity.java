@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Wayne Dyck
+ * Copyright 2016 Wayne Dyck
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,10 +19,12 @@ package com.imaginedreal.mgwt.trafficflow.client.activities.camera;
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
+import com.googlecode.gwtphonegap.client.plugins.analytics.Analytics;
 import com.googlecode.mgwt.mvp.client.MGWTAbstractActivity;
 import com.imaginedreal.mgwt.trafficflow.client.ClientFactory;
 import com.imaginedreal.mgwt.trafficflow.client.event.ActionEvent;
 import com.imaginedreal.mgwt.trafficflow.client.event.ActionNames;
+import com.imaginedreal.mgwt.trafficflow.client.util.Consts;
 import com.imaginedreal.mgwt.trafficflow.shared.CameraItem;
 
 public class CameraActivity extends MGWTAbstractActivity implements
@@ -31,8 +33,9 @@ public class CameraActivity extends MGWTAbstractActivity implements
 	private final ClientFactory clientFactory;
 	private CameraView view;
 	private EventBus eventBus;
-	private String cameraId;
+	private String cameraId = "";
 	private CameraItem cameraItem;
+	private Analytics analytics;
 
 	public CameraActivity(ClientFactory clientFactory) {
 		this.clientFactory = clientFactory;
@@ -42,6 +45,7 @@ public class CameraActivity extends MGWTAbstractActivity implements
 	public void start(AcceptsOneWidget panel, final EventBus eventBus) {
 		view = clientFactory.getCameraView();
 		this.eventBus = eventBus;
+		analytics = clientFactory.getAnalytics();
 		view.setPresenter(this);
 
 		Place place = clientFactory.getPlaceController().getWhere();
@@ -54,7 +58,11 @@ public class CameraActivity extends MGWTAbstractActivity implements
 			view.showProgressIndicator();
 			view.renderCameraImage(cameraItem.getUrl());
 		}
-				
+
+        if (Consts.ANALYTICS_ENABLED) {
+            analytics.trackView("/Camera/" + cameraId);
+        }
+
 		panel.setWidget(view);
 
 	}

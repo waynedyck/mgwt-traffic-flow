@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Wayne Dyck
+ * Copyright 2016 Wayne Dyck
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,8 +18,10 @@ package com.imaginedreal.mgwt.trafficflow.client.activities.settings;
 
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
+import com.googlecode.gwtphonegap.client.plugins.analytics.Analytics;
 import com.googlecode.mgwt.mvp.client.MGWTAbstractActivity;
 import com.imaginedreal.mgwt.trafficflow.client.ClientFactory;
+import com.imaginedreal.mgwt.trafficflow.client.util.Consts;
 
 public class SettingsActivity extends MGWTAbstractActivity implements
 		SettingsView.Presenter {
@@ -27,6 +29,7 @@ public class SettingsActivity extends MGWTAbstractActivity implements
 	private final ClientFactory clientFactory;
 	private SettingsView view;
 	private EventBus eventBus;
+	private Analytics analytics;
 
 	public SettingsActivity(ClientFactory clientFactory) {
 		this.clientFactory = clientFactory;
@@ -36,7 +39,12 @@ public class SettingsActivity extends MGWTAbstractActivity implements
 	public void start(AcceptsOneWidget panel, final EventBus eventBus) {
 		view = clientFactory.getSettingsView();
 		this.eventBus = eventBus;
+		analytics = clientFactory.getAnalytics();
 		view.setPresenter(this);
+
+        if (Consts.ANALYTICS_ENABLED) {
+            analytics.trackView("/Settings");
+        }
 
 		panel.setWidget(view);
 
@@ -55,5 +63,12 @@ public class SettingsActivity extends MGWTAbstractActivity implements
 			clientFactory.getSwipeMenu().close();
 		}
 	}
+
+    @Override
+    public void onFlowColorSet(String key, String color) {
+        if (Consts.ANALYTICS_ENABLED) {
+            analytics.trackEvent("Flow Colors", key, color, 0);
+        }
+    }
 
 }

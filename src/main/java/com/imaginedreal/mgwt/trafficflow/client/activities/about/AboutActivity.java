@@ -18,8 +18,10 @@ package com.imaginedreal.mgwt.trafficflow.client.activities.about;
 
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
+import com.googlecode.gwtphonegap.client.plugins.analytics.Analytics;
 import com.googlecode.mgwt.mvp.client.MGWTAbstractActivity;
 import com.imaginedreal.mgwt.trafficflow.client.ClientFactory;
+import com.imaginedreal.mgwt.trafficflow.client.util.Consts;
 
 public class AboutActivity extends MGWTAbstractActivity implements
 		AboutView.Presenter {
@@ -27,6 +29,7 @@ public class AboutActivity extends MGWTAbstractActivity implements
 	private final ClientFactory clientFactory;
 	private AboutView view;
 	private EventBus eventBus;
+	private Analytics analytics;
 
 	public AboutActivity(ClientFactory clientFactory) {
 		this.clientFactory = clientFactory;
@@ -36,7 +39,12 @@ public class AboutActivity extends MGWTAbstractActivity implements
 	public void start(AcceptsOneWidget panel, final EventBus eventBus) {
 		view = clientFactory.getAboutView();
 		this.eventBus = eventBus;
+		analytics = clientFactory.getAnalytics();
 		view.setPresenter(this);
+
+		if (Consts.ANALYTICS_ENABLED) {
+		    analytics.trackView("/About");
+		}
 
 		panel.setWidget(view);
 
