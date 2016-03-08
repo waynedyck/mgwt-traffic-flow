@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Wayne Dyck
+ * Copyright 2016 Wayne Dyck
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,6 +44,7 @@ import com.googlecode.gwtphonegap.client.PhoneGapTimeoutEvent;
 import com.googlecode.gwtphonegap.client.PhoneGapTimeoutHandler;
 import com.googlecode.gwtphonegap.client.event.BackButtonPressedEvent;
 import com.googlecode.gwtphonegap.client.event.BackButtonPressedHandler;
+import com.googlecode.gwtphonegap.client.plugins.analytics.Analytics;
 import com.googlecode.mgwt.mvp.client.AnimatingActivityManager;
 import com.googlecode.mgwt.mvp.client.AnimationMapper;
 import com.googlecode.mgwt.mvp.client.history.MGWTPlaceHistoryHandler;
@@ -57,21 +58,27 @@ import com.imaginedreal.mgwt.trafficflow.client.activities.tacoma.TacomaPlace;
 import com.imaginedreal.mgwt.trafficflow.client.plugins.admob.AdMob;
 import com.imaginedreal.mgwt.trafficflow.client.plugins.admob.AdMobOptions;
 import com.imaginedreal.mgwt.trafficflow.client.plugins.admob.AdMobOptions.AdPosition;
+import com.imaginedreal.mgwt.trafficflow.client.util.Consts;
 import com.imaginedreal.mgwt.trafficflow.shared.CacheItem;
-
 
 public class AppEntryPoint implements EntryPoint {
   
     private void start() {
         SuperDevModeUtil.showDevMode();
 
-		final PhoneGap phoneGap = GWT.create(PhoneGap.class);
+        final ClientFactory clientFactory = new ClientFactoryImpl();
 
+        // Initialize and configure Google Analytics plugin
+        final Analytics analytics = GWT.create(Analytics.class);
+        analytics.initialize();
+        ((ClientFactoryImpl) clientFactory).setAnalytics(analytics);
+        analytics.startTrackerWithId(Consts.ANALYTICS_TRACKING_ID);
+
+		final PhoneGap phoneGap = GWT.create(PhoneGap.class);
 		phoneGap.addHandler(new PhoneGapAvailableHandler() {
 
 	        @Override
 	        public void onPhoneGapAvailable(PhoneGapAvailableEvent event) {
-	    		final ClientFactory clientFactory = new ClientFactoryImpl();
 	        	((ClientFactoryImpl) clientFactory).setPhoneGap(phoneGap);
 	        	
 	        	buildDisplay(clientFactory, phoneGap);
@@ -93,7 +100,7 @@ public class AppEntryPoint implements EntryPoint {
         adMob.initialize();
 
         AdMobOptions options = (AdMobOptions)JavaScriptObject.createObject().cast();
-        options.setAdId("/6499/example/banner");
+        options.setAdId(Consts.AD_UNIT_ID);
         options.setOffsetTopBar(true);
         options.setAutoShow(true);
         options.setPosition(AdPosition.BOTTOM_CENTER.getPosition());

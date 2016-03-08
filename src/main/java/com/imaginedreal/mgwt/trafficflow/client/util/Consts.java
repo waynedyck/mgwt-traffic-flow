@@ -30,7 +30,17 @@ public class Consts {
 	 * Current version number and build of the app.
 	 */
 	public static final String APP_VERSION = "0.2.0";
-	
+
+    /**
+     * Ad unit Id for banner
+     */
+    public static final String AD_UNIT_ID = "/6499/example/banner";
+
+    /**
+     * Unique Tracking Id from Property Settings in Google Analytics
+     */
+    public static final String ANALYTICS_TRACKING_ID = "UA-XXXXXX-XX";
+
 	/**
 	 * The caller references the constants using <tt>Consts.EMPTY_STRING</tt>,
 	 * and so on. Thus, the caller should be prevented from constructing objects of

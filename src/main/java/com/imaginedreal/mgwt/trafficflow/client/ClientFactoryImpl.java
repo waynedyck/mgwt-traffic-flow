@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Wayne Dyck
+ * Copyright 2016 Wayne Dyck
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,6 +34,7 @@ import com.google.gwt.place.shared.PlaceController;
 import com.google.web.bindery.event.shared.EventBus;
 import com.google.web.bindery.event.shared.SimpleEventBus;
 import com.googlecode.gwtphonegap.client.PhoneGap;
+import com.googlecode.gwtphonegap.client.plugins.analytics.Analytics;
 import com.googlecode.mgwt.ui.client.widget.menu.swipe.SwipeMenu;
 
 public class ClientFactoryImpl implements ClientFactory {
@@ -49,6 +50,7 @@ public class ClientFactoryImpl implements ClientFactory {
 	private SettingsViewGwtImpl settingsView;
 	private MenuViewGwtImpl menuView;
 	private CameraViewGwtImpl cameraView;
+	private Analytics analytics;
 
 	public ClientFactoryImpl() {
 		eventBus = new SimpleEventBus();
@@ -134,5 +136,14 @@ public class ClientFactoryImpl implements ClientFactory {
 		}
 		return tacomaView;
 	}
+
+    @Override
+    public Analytics getAnalytics() {
+        return analytics;
+    }
+
+    public void setAnalytics(Analytics analytics) {
+        this.analytics = analytics;
+    }
 
 }

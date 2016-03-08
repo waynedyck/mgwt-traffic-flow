@@ -205,6 +205,13 @@ public class SettingsViewGwtImpl extends Composite implements SettingsView {
 	private void setColor(ImageButton imageButton, String key, String color) {
 		imageButton.setIconColor("#" + color);
 		localStorage.setItem(key, color);
+		onFlowColorSet(key, color);
 	}
+
+    private void onFlowColorSet(String key, String color) {
+        if (presenter != null) {
+            presenter.onFlowColorSet(key, color);
+        }
+    }
 
 }

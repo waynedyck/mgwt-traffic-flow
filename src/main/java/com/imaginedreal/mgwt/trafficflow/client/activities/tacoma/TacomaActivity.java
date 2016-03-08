@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Wayne Dyck
+ * Copyright 2016 Wayne Dyck
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,6 +37,7 @@ import com.google.gwt.storage.client.Storage;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.web.bindery.event.shared.EventBus;
+import com.googlecode.gwtphonegap.client.plugins.analytics.Analytics;
 import com.googlecode.mgwt.mvp.client.MGWTAbstractActivity;
 import com.imaginedreal.mgwt.trafficflow.client.ClientFactory;
 import com.imaginedreal.mgwt.trafficflow.client.activities.camera.CameraPlace;
@@ -45,6 +46,7 @@ import com.imaginedreal.mgwt.trafficflow.client.storage.TrafficFlowContract.Cach
 import com.imaginedreal.mgwt.trafficflow.client.storage.TrafficFlowContract.StationsColumns;
 import com.imaginedreal.mgwt.trafficflow.client.storage.TrafficFlowDataService;
 import com.imaginedreal.mgwt.trafficflow.client.storage.TrafficFlowDataService.Tables;
+import com.imaginedreal.mgwt.trafficflow.client.util.Consts;
 import com.imaginedreal.mgwt.trafficflow.shared.CacheItem;
 import com.imaginedreal.mgwt.trafficflow.shared.CameraItem;
 import com.imaginedreal.mgwt.trafficflow.shared.FlowDataFeed;
@@ -56,6 +58,7 @@ public class TacomaActivity extends MGWTAbstractActivity implements
 	private final ClientFactory clientFactory;
 	private TacomaView view;
 	private TrafficFlowDataService dbService;
+	private Analytics analytics;
     private static final String FLOW_LINES = Resources.INSTANCE.tacomaAreaXY().getText();
     private static final String CAMERA_LINES = Resources.INSTANCE.tacomaAreaCamerasXY().getText();
     private static Map<String, StationItem> stationItemsMap = new HashMap<String, StationItem>();
@@ -73,6 +76,7 @@ public class TacomaActivity extends MGWTAbstractActivity implements
 	public void start(AcceptsOneWidget panel, EventBus eventBus) {
 		view = clientFactory.getTacomaView();
 		dbService = clientFactory.getDbService();
+		analytics = clientFactory.getAnalytics();
 		view.setPresenter(this);
 		
 		localStorage = Storage.getLocalStorageIfSupported();
@@ -80,6 +84,11 @@ public class TacomaActivity extends MGWTAbstractActivity implements
 		buildStationList();
 		getCameras();
 		getFlowData();
+
+        if (Consts.ANALYTICS_ENABLED) {
+            analytics.trackView("/Tacoma");
+        }
+
 		panel.setWidget(view);
 	}
 

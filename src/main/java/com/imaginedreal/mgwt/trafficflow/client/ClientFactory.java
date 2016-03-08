@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Wayne Dyck
+ * Copyright 2016 Wayne Dyck
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,6 +26,7 @@ import com.imaginedreal.mgwt.trafficflow.client.storage.TrafficFlowDataService;
 import com.google.gwt.place.shared.PlaceController;
 import com.google.web.bindery.event.shared.EventBus;
 import com.googlecode.gwtphonegap.client.PhoneGap;
+import com.googlecode.gwtphonegap.client.plugins.analytics.Analytics;
 import com.googlecode.mgwt.ui.client.widget.menu.swipe.SwipeMenu;
 
 
@@ -36,6 +37,7 @@ public interface ClientFactory {
 	public PhoneGap getPhoneGap();
 	public SwipeMenu getSwipeMenu();
 	public TrafficFlowDataService getDbService();
+	public Analytics getAnalytics();
 	
 	/**
 	 * @return
