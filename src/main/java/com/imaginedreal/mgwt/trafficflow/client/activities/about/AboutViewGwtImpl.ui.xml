@@ -6,6 +6,7 @@
 
     <ui:style>
 		.htmlPanel {
+			font-weight: normal;
 			padding: 16px;
 		}
     </ui:style>
@@ -15,14 +16,15 @@
     <mgwt:panel.flex.RootFlexPanel>
         <mgwt:header.HeaderPanel>
             <mgwt:button.image.MenuImageButton ui:field="menuButton" />
+            <mgwt:panel.flex.FlexSpacer ui:field="leftFlexSpacer" />
             <mgwt:header.HeaderTitle>About</mgwt:header.HeaderTitle>
             <mgwt:panel.flex.FlexSpacer />
             <mgwt:panel.flex.FixedSpacer />
         </mgwt:header.HeaderPanel>
 
-        <mgwt:panel.scroll.ScrollPanel scrollingEnabledX="false" bounce="false">
+        <mgwt:panel.scroll.ScrollPanel scrollingEnabledX="false" ui:field="scrollPanel">
             <g:HTMLPanel styleName="{style.htmlPanel}">
-            	<g:HTML>
+            	<g:HTMLPanel>
             	    <p>This app is a bit of an experiment in an attempt to assist those who have a color 
             	        vision deficiency. One who is color vision deficient has a decreased ability 
             	        to see color, or perceive color differences. This is potentially problematic if you 
@@ -31,11 +33,10 @@
             	        the ability to customize the colors which are used to display traffic conditions.</p><br />
             	    <p>The app is still being worked on so if you have any questions, thoughts or suggestions 
             	        on how to make it better please feel free to send an email to 
-            	        <a href="mailto:support@imaginedreal.com?subject=TrafficFlow Android App" style="color:rgba(0,0,0,0.54);">
-            	            Imagined Real Support</a>.</p>
+            	        <g:Anchor ui:field="email">Imagined Real Support</g:Anchor>.</p>
             	    <br />
             	    <p style="color:rgba(0,0,0,0.54);">App Version: <ui:text from="{APP_VERSION}" /></p>
-            	</g:HTML>
+            	</g:HTMLPanel>
             </g:HTMLPanel>
         </mgwt:panel.scroll.ScrollPanel>
 

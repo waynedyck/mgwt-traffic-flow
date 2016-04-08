@@ -45,6 +45,7 @@
     <mgwt:panel.flex.RootFlexPanel>
         <mgwt:header.HeaderPanel>
             <mgwt:button.image.MenuImageButton ui:field="menuButton" />
+            <mgwt:panel.flex.FlexSpacer ui:field="leftFlexSpacer" />
             <mgwt:header.HeaderTitle>Tacoma Area</mgwt:header.HeaderTitle>
             <mgwt:panel.flex.FlexSpacer />
             <mgwt:button.image.CameraImageButton ui:field="cameraButton" />

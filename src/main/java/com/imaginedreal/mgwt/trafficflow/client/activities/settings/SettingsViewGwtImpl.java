@@ -27,11 +27,14 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 import com.googlecode.mgwt.dom.client.event.tap.TapEvent;
 import com.googlecode.mgwt.dom.client.event.tap.TapHandler;
+import com.googlecode.mgwt.ui.client.MGWT;
 import com.googlecode.mgwt.ui.client.widget.button.ImageButton;
 import com.googlecode.mgwt.ui.client.widget.button.image.MenuImageButton;
 import com.googlecode.mgwt.ui.client.widget.form.Form;
 import com.googlecode.mgwt.ui.client.widget.form.FormEntry;
 import com.googlecode.mgwt.ui.client.widget.image.ImageHolder;
+import com.googlecode.mgwt.ui.client.widget.panel.flex.FlexSpacer;
+import com.googlecode.mgwt.ui.client.widget.panel.scroll.ScrollPanel;
 import com.imaginedreal.mgwt.trafficflow.client.widget.colorpicker.ColorPickerDialog;
 import com.imaginedreal.mgwt.trafficflow.client.widget.colorpicker.dialog.DialogClosedEvent;
 import com.imaginedreal.mgwt.trafficflow.client.widget.colorpicker.dialog.IDialogClosedHandler;
@@ -54,7 +57,13 @@ public class SettingsViewGwtImpl extends Composite implements SettingsView {
 
 	@UiField
 	MenuImageButton menuButton;
-	
+
+    @UiField
+    FlexSpacer leftFlexSpacer;
+
+    @UiField
+    ScrollPanel scrollPanel;
+
 	@UiField
 	FlowPanel container;
 	
@@ -79,7 +88,12 @@ public class SettingsViewGwtImpl extends Composite implements SettingsView {
 		localStorage = Storage.getLocalStorageIfSupported();
 		
 		initWidget(uiBinder.createAndBindUi(this));
-		
+
+		if (MGWT.getOsDetection().isAndroid()) {
+            leftFlexSpacer.setVisible(false);
+            scrollPanel.setBounce(false);
+        }
+
 		Form widgetList = new Form();
 		widgetList.setHeader(new Label("Flow Colors"));
 		

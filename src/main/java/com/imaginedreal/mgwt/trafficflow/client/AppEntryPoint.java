@@ -94,18 +94,20 @@ public class AppEntryPoint implements EntryPoint {
 	    });
 		
 		phoneGap.initializePhoneGap();
-		
-        // Initialize and configure AdMob plugin
-        final AdMob adMob = GWT.create(AdMob.class);
-        adMob.initialize();
 
-        AdMobOptions options = (AdMobOptions)JavaScriptObject.createObject().cast();
-        options.setAdId(Consts.AD_UNIT_ID);
-        options.setOffsetTopBar(true);
-        options.setAutoShow(true);
-        options.setPosition(AdPosition.BOTTOM_CENTER.getPosition());
+		if (Consts.ADS_ENABLED) {
+            // Initialize and configure AdMob plugin
+            final AdMob adMob = GWT.create(AdMob.class);
+            adMob.initialize();
 
-        adMob.createBanner(options);
+            AdMobOptions options = (AdMobOptions)JavaScriptObject.createObject().cast();
+            options.setAdId(Consts.AD_UNIT_ID);
+            options.setOffsetTopBar(true);
+            options.setAutoShow(true);
+            options.setPosition(AdPosition.BOTTOM_CENTER.getPosition());
+
+            adMob.createBanner(options);
+		}
     }
 
     private void buildDisplay(final ClientFactory clientFactory, final PhoneGap phoneGap) {

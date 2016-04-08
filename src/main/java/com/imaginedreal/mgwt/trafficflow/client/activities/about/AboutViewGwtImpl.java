@@ -20,10 +20,15 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
+import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
 import com.googlecode.mgwt.dom.client.event.tap.TapEvent;
+import com.googlecode.mgwt.ui.client.MGWT;
 import com.googlecode.mgwt.ui.client.widget.button.image.MenuImageButton;
+import com.googlecode.mgwt.ui.client.widget.panel.flex.FlexSpacer;
+import com.googlecode.mgwt.ui.client.widget.panel.scroll.ScrollPanel;
+import com.imaginedreal.mgwt.trafficflow.client.util.Consts;
 
 public class AboutViewGwtImpl extends Composite implements AboutView {
 
@@ -43,12 +48,34 @@ public class AboutViewGwtImpl extends Composite implements AboutView {
 
 	@UiField
 	MenuImageButton menuButton;
-	
+
+	@UiField
+	FlexSpacer leftFlexSpacer;
+
+	@UiField
+	ScrollPanel scrollPanel;
+
+	@UiField
+	Anchor email;
+
 	private Presenter presenter;
 	
 	public AboutViewGwtImpl() {
-	
+	    String appVersion = Consts.APP_VERSION;
+	    String mailTo = "mailto:support@imaginedreal.com?subject=Traffic Flow ";
+	    email = new Anchor();
+
 		initWidget(uiBinder.createAndBindUi(this));
+
+        if (MGWT.getOsDetection().isAndroid()) {
+            leftFlexSpacer.setVisible(false);
+            scrollPanel.setBounce(false);
+            email.setHref(mailTo + "Android App v" + appVersion);
+        } else if (MGWT.getOsDetection().isIOs()) {
+            email.setHref(mailTo + "iPhone App v" + appVersion);
+        } else {
+            email.setHref(mailTo + "Mobile App v" + appVersion);
+        }
 
 	}
 
