@@ -44,9 +44,11 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 import com.googlecode.mgwt.dom.client.event.tap.TapEvent;
 import com.googlecode.mgwt.dom.client.event.tap.TapHandler;
+import com.googlecode.mgwt.ui.client.MGWT;
 import com.googlecode.mgwt.ui.client.widget.button.image.CameraImageButton;
 import com.googlecode.mgwt.ui.client.widget.button.image.MenuImageButton;
 import com.googlecode.mgwt.ui.client.widget.button.image.RefreshImageButton;
+import com.googlecode.mgwt.ui.client.widget.panel.flex.FlexSpacer;
 import com.googlecode.mgwt.ui.client.widget.panel.scroll.ScrollPanel;
 import com.googlecode.mgwt.ui.client.widget.progress.ProgressIndicator;
 import com.googlecode.mgwt.ui.client.widget.touch.TouchDelegate;
@@ -93,7 +95,10 @@ public class SeattleViewGwtImpl extends Composite implements SeattleView {
 	
 	@UiField
 	MenuImageButton menuButton;
-	
+
+    @UiField
+    FlexSpacer leftFlexSpacer;
+
 	@UiField
 	CameraImageButton cameraButton;
 	
@@ -121,7 +126,11 @@ public class SeattleViewGwtImpl extends Composite implements SeattleView {
 		touchDelegate = new TouchDelegate(cameraCanvas);
 
 		initWidget(uiBinder.createAndBindUi(this));
-		
+
+        if (MGWT.getOsDetection().isAndroid()) {
+            leftFlexSpacer.setVisible(false);
+        }
+
 		getMap();
 	}
 

@@ -10,12 +10,13 @@
     <mgwt:panel.flex.RootFlexPanel>
         <mgwt:header.HeaderPanel>
             <mgwt:button.image.MenuImageButton ui:field="menuButton" />
+            <mgwt:panel.flex.FlexSpacer ui:field="leftFlexSpacer" />
             <mgwt:header.HeaderTitle>Settings</mgwt:header.HeaderTitle>
             <mgwt:panel.flex.FlexSpacer />
             <mgwt:panel.flex.FixedSpacer />
         </mgwt:header.HeaderPanel>
 
-        <mgwt:panel.scroll.ScrollPanel scrollingEnabledX="false" bounce="false">
+        <mgwt:panel.scroll.ScrollPanel scrollingEnabledX="false" ui:field="scrollPanel">
             <g:FlowPanel ui:field="container" />
         </mgwt:panel.scroll.ScrollPanel>
 

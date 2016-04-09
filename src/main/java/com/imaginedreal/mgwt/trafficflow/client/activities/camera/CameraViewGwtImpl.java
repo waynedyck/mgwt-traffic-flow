@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Wayne Dyck
+ * Copyright 2016 Wayne Dyck
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,10 @@ import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Widget;
 import com.googlecode.mgwt.dom.client.event.tap.TapEvent;
-import com.googlecode.mgwt.ui.client.widget.button.image.BackImageButton;
+import com.googlecode.mgwt.ui.client.MGWT;
+import com.googlecode.mgwt.ui.client.widget.button.image.PreviousitemImageButton;
+import com.googlecode.mgwt.ui.client.widget.panel.flex.FlexSpacer;
+import com.googlecode.mgwt.ui.client.widget.panel.scroll.ScrollPanel;
 import com.googlecode.mgwt.ui.client.widget.progress.ProgressIndicator;
 
 public class CameraViewGwtImpl extends Composite implements CameraView {
@@ -50,21 +53,32 @@ public class CameraViewGwtImpl extends Composite implements CameraView {
 
 	@UiField
 	FlowPanel flowPanel;
-	
+
 	@UiField
 	ProgressIndicator progressIndicator;
-	
+
 	@UiField
-	BackImageButton backButton;
-	
+	PreviousitemImageButton backButton;
+
+    @UiField
+    FlexSpacer leftFlexSpacer;
+
+    @UiField
+    ScrollPanel scrollPanel;	
+
 	@UiField
 	Image cameraImage;
 	
 	private Presenter presenter;
 	
 	public CameraViewGwtImpl() {
-	
+
 		initWidget(uiBinder.createAndBindUi(this));
+
+        if (MGWT.getOsDetection().isAndroid()) {
+            leftFlexSpacer.setVisible(false);
+            scrollPanel.setBounce(false);
+        }
 
 	}
 
