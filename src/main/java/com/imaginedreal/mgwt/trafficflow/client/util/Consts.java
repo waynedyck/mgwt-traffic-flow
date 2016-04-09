@@ -19,7 +19,8 @@ package com.imaginedreal.mgwt.trafficflow.client.util;
 public class Consts {
 
 	public static final String HOST_URL = "INSERT_SERVER_URL_HERE";
-	public static final boolean ANALYTICS_ENABLED = false; 
+	public static final boolean ANALYTICS_ENABLED = false;
+	public static final boolean ADS_ENABLED = false;
 	
 	/**
 	 * The Event Category title in Google Analytics.

@@ -30,7 +30,7 @@ import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Widget;
 import com.googlecode.mgwt.dom.client.event.tap.TapEvent;
 import com.googlecode.mgwt.ui.client.MGWT;
-import com.googlecode.mgwt.ui.client.widget.button.image.BackImageButton;
+import com.googlecode.mgwt.ui.client.widget.button.image.PreviousitemImageButton;
 import com.googlecode.mgwt.ui.client.widget.panel.flex.FlexSpacer;
 import com.googlecode.mgwt.ui.client.widget.panel.scroll.ScrollPanel;
 import com.googlecode.mgwt.ui.client.widget.progress.ProgressIndicator;
@@ -58,7 +58,7 @@ public class CameraViewGwtImpl extends Composite implements CameraView {
 	ProgressIndicator progressIndicator;
 
 	@UiField
-	BackImageButton backButton;
+	PreviousitemImageButton backButton;
 
     @UiField
     FlexSpacer leftFlexSpacer;
