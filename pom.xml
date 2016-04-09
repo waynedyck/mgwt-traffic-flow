@@ -5,7 +5,7 @@
     <groupId>com.imaginedreal.mgwt.trafficflow</groupId>
     <artifactId>mgwt-traffic-flow</artifactId>
     <packaging>war</packaging>
-    <version>0.3.0</version>
+    <version>1.0.0</version>
     <name>mgwt-traffic-flow</name>
     <description>Seattle area traffic flow and conditions</description>
 
