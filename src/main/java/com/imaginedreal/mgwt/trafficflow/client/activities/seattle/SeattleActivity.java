@@ -151,7 +151,9 @@ public class SeattleActivity extends MGWTAbstractActivity implements
 		RegExp routesRegExp = RegExp.compile(routesPattern);
 		
 		List<String> loops = Arrays.asList(CAMERA_LINES.split("\\n"));
-		
+
+		cameraItems.clear();
+
         for (String loop: loops.subList(6, loops.size())) { // Start at **~~CAMERAS~~**
 			headingMatcher = headingRegExp.exec(loop);
 			boolean headingMatchFound = (headingMatcher != null);
