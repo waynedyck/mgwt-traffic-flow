@@ -138,7 +138,9 @@ public class TacomaActivity extends MGWTAbstractActivity implements
 		RegExp headingRegExp = RegExp.compile(headingPattern);
 		
 		List<String> loops = Arrays.asList(CAMERA_LINES.split("\\n"));
-		
+
+		cameraItems.clear();
+
         for (String loop: loops.subList(6, loops.size())) {
 			headingMatcher = headingRegExp.exec(loop);
 			boolean headingMatchFound = (headingMatcher != null);
