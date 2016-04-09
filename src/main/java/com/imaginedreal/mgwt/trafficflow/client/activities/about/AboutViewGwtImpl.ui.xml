@@ -25,7 +25,7 @@
         <mgwt:panel.scroll.ScrollPanel scrollingEnabledX="false" ui:field="scrollPanel">
             <g:HTMLPanel styleName="{style.htmlPanel}">
             	<g:HTMLPanel>
-            	    <p>This app is a bit of an experiment in an attempt to assist those who have a color 
+            	    <p>This app is an experiment in an attempt to assist those who have a color 
             	        vision deficiency. One who is color vision deficient has a decreased ability 
             	        to see color, or perceive color differences. This is potentially problematic if you 
             	        are trying to differentiate traffic conditions on a map based on a color scheme.</p><br />
