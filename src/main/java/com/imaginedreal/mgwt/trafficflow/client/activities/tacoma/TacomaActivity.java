@@ -78,18 +78,19 @@ public class TacomaActivity extends MGWTAbstractActivity implements
 		dbService = clientFactory.getDbService();
 		analytics = clientFactory.getAnalytics();
 		view.setPresenter(this);
-		
+
 		localStorage = Storage.getLocalStorageIfSupported();
-		
+
 		buildStationList();
-		getCameras();
-		getFlowData();
 
         if (Consts.ANALYTICS_ENABLED) {
             analytics.trackView("/Tacoma");
         }
 
-		panel.setWidget(view);
+        panel.setWidget(view);
+
+        getCameras();
+        getFlowData();
 	}
 
 	@Override

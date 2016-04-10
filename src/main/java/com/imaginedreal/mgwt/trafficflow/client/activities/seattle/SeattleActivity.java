@@ -80,16 +80,17 @@ public class SeattleActivity extends MGWTAbstractActivity implements
 		view.setPresenter(this);
 		
 		localStorage = Storage.getLocalStorageIfSupported();
-		
-		buildStationList();
-		getCameras();
-		getFlowData();
 
-        if (Consts.ANALYTICS_ENABLED) {
+		buildStationList();
+
+		if (Consts.ANALYTICS_ENABLED) {
             analytics.trackView("/Seattle");
         }
 
-		panel.setWidget(view);
+        panel.setWidget(view);
+
+        getCameras();
+        getFlowData();
 	}
 
 	@Override
