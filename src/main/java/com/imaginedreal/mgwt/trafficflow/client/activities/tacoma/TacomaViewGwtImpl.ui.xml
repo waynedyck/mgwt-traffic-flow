@@ -3,7 +3,8 @@
     xmlns:ui="urn:ui:com.google.gwt.uibinder"
     xmlns:g="urn:import:com.google.gwt.user.client.ui"
     xmlns:gwt="urn:import:com.google.gwt"
-    xmlns:mgwt="urn:import:com.googlecode.mgwt.ui.client.widget">
+    xmlns:mgwt="urn:import:com.googlecode.mgwt.ui.client.widget"
+    xmlns:imagined="urn:import:com.imaginedreal.mgwt.trafficflow.client.widget">
 
     <ui:style>
         .progressIndicatorPanel {
@@ -48,7 +49,7 @@
             <mgwt:panel.flex.FlexSpacer ui:field="leftFlexSpacer" />
             <mgwt:header.HeaderTitle>Tacoma Area</mgwt:header.HeaderTitle>
             <mgwt:panel.flex.FlexSpacer />
-            <mgwt:button.image.CameraImageButton ui:field="cameraButton" />
+            <imagined:button.image.CameraImageButton ui:field="cameraButton" />
             <mgwt:button.image.RefreshImageButton ui:field="refreshButton" />
         </mgwt:header.HeaderPanel>
 

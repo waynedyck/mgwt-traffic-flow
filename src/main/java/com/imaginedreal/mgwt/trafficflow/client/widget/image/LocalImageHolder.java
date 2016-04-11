@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Wayne Dyck
+ * Copyright 2016 Wayne Dyck
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ public class LocalImageHolder {
     public interface LocalImageHolderAppearance {
         public interface Images {
             ImageResource menu();
+            ImageResource camera();
         }
         
         Images get();
