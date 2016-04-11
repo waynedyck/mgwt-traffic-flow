@@ -34,6 +34,7 @@ import com.google.gwt.jsonp.client.JsonpRequestBuilder;
 import com.google.gwt.regexp.shared.MatchResult;
 import com.google.gwt.regexp.shared.RegExp;
 import com.google.gwt.storage.client.Storage;
+import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.web.bindery.event.shared.EventBus;
@@ -67,6 +68,7 @@ public class SeattleActivity extends MGWTAbstractActivity implements
     private static Storage localStorage;
 	private static DateTimeFormat parseDateFormat = DateTimeFormat.getFormat("EEE MMM d HH:mm:ss yyyy"); // Sun Jan 25 00:29:22 2015
 	private static DateTimeFormat displayDateFormat = DateTimeFormat.getFormat("MMMM d, yyyy h:mm a"); // January 25, 2015 00:29 AM
+	private Timer timer = null;
     
 	public SeattleActivity(ClientFactory clientFactory) {
 		this.clientFactory = clientFactory;
@@ -82,6 +84,18 @@ public class SeattleActivity extends MGWTAbstractActivity implements
 		localStorage = Storage.getLocalStorageIfSupported();
 
 		buildStationList();
+        getCameras();
+
+        timer = new Timer() {
+
+            @Override
+            public void run() {
+                getFlowData();
+                timer = null;
+            }
+        };
+
+        timer.schedule(250);
 
 		if (Consts.ANALYTICS_ENABLED) {
             analytics.trackView("/Seattle");
@@ -89,8 +103,6 @@ public class SeattleActivity extends MGWTAbstractActivity implements
 
         panel.setWidget(view);
 
-        getCameras();
-        getFlowData();
 	}
 
 	@Override

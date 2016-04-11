@@ -82,6 +82,8 @@ public class TacomaActivity extends MGWTAbstractActivity implements
 		localStorage = Storage.getLocalStorageIfSupported();
 
 		buildStationList();
+        getCameras();
+        getFlowData();
 
         if (Consts.ANALYTICS_ENABLED) {
             analytics.trackView("/Tacoma");
@@ -89,8 +91,6 @@ public class TacomaActivity extends MGWTAbstractActivity implements
 
         panel.setWidget(view);
 
-        getCameras();
-        getFlowData();
 	}
 
 	@Override
