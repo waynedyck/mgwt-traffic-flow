@@ -25,10 +25,12 @@
         <mgwt:panel.scroll.ScrollPanel scrollingEnabledX="false" ui:field="scrollPanel">
             <g:HTMLPanel styleName="{style.htmlPanel}">
             	<g:HTMLPanel>
-            	    <p>This app is an experiment in an attempt to assist those who have a color 
-            	        vision deficiency. One who is color vision deficient has a decreased ability 
-            	        to see color, or perceive color differences. This is potentially problematic if you 
-            	        are trying to differentiate traffic conditions on a map based on a color scheme.</p><br />
+                    <p>This app provides traffic flow maps for the Seattle, Tacoma and Olympia area and allows you 
+                        to pick your own colors for traffic conditions.</p><br />
+            	    <p>Being able to choose your own colors is beneficial for those who have a color vision deficiency. 
+                        One who is color vision deficient has a decreased ability to see color, or perceive color 
+                        differences. This is potentially problematic if you are trying to differentiate traffic 
+                        conditions on a map based on a color scheme.</p><br />
             	    <p>By tapping the gear icon in the upper left corner of the menu screen you have 
             	        the ability to customize the colors which are used to display traffic conditions.</p><br />
             	    <p>The app is still being worked on so if you have any questions, thoughts or suggestions 
