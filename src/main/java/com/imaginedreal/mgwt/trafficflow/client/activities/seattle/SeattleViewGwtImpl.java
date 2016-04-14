@@ -129,6 +129,8 @@ public class SeattleViewGwtImpl extends Composite implements SeattleView {
 
         if (MGWT.getOsDetection().isAndroid()) {
             leftFlexSpacer.setVisible(false);
+        } else if (MGWT.getOsDetection().isIOs()) {
+            leftFlexSpacer.setVisible(false);
         }
 
 		getMap();

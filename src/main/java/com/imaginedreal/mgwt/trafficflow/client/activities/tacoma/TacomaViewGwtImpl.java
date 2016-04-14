@@ -129,6 +129,8 @@ public class TacomaViewGwtImpl extends Composite implements TacomaView {
 
         if (MGWT.getOsDetection().isAndroid()) {
             leftFlexSpacer.setVisible(false);
+        } else if (MGWT.getOsDetection().isIOs()) {
+            leftFlexSpacer.setVisible(false);
         }
 
 		getMap();

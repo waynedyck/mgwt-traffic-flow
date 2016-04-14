@@ -33,8 +33,8 @@
                         conditions on a map based on a color scheme.</p><br />
             	    <p>By tapping the gear icon in the upper left corner of the menu screen you have 
             	        the ability to customize the colors which are used to display traffic conditions.</p><br />
-            	    <p>The app is still being worked on so if you have any questions, thoughts or suggestions 
-            	        on how to make it better please feel free to send an email to 
+            	    <p>If you have any questions, thoughts or suggestions on how to make the app better please 
+                        feel free to send an email to 
             	        <g:Anchor ui:field="email">Imagined Real Support</g:Anchor>.</p>
             	    <br />
             	    <p style="color:rgba(0,0,0,0.54);">App Version: <ui:text from="{APP_VERSION}" /></p>
